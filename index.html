@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Twitter</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ====================S C R I P T===================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <!-- ====================F O N T==================== -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- ====================S T Y L E==================== -->
+    <link href="css/custom.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="img/svg/logo.svg" type="image/x-icon">
+</head>
+<body>
+    <!----------------------------------------------S T A R T   C O N T E N T-------------------------------------------->
+    <main class="content">
+        <!-- Modal window -->
+        <div class="modal">
+            <div class="modal__content">
+                <h6 class="modal__title">Ошибка!</h6>
+                <p class="modal__text"></p>
+                <button class="modal__button">Закрыть</button>
+            </div>
+        </div>
+
+        <div class="logo">Twitter</div>
+        <div class="msg create-msg">
+          <div class="theme__container">
+            <p class="theme__text">Select theme</p>
+            <input type="checkbox" name="theme" id="theme">
+            <label for="theme" class="checkbox"></label>
+          </div>
+          <label for="create-msg-author">Author</label>
+          <input type="text" name="msg-author" id="create-msg-author">
+          <label for="create-msg-author">Message</label>
+          <textarea id="create-msg-text" name="msg-text"></textarea>
+          <button id="sendBtn">Send</button>
+        </div>
+        <ul class="posts">
+          <!-- <li class="msg">
+            <div class="msg__info">
+              <div class="author">Titter</div>
+              <div class="msg__date"></div>
+            </div>
+            <div class="text"> Welcome to Titter!</div>
+          </li> -->
+        </ul>
+      </main>
+    <!----------------------------------------------E N D   C O N T E N T--------------------------------------------->
+    <!-- ====================S C R I P T===================== -->
+    <script src="js/script.js" type="module"></script>
+</body>
+</html>

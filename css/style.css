@@ -1,7 +1,10 @@
 /*core styles*/
+label{
+    display: block;
+}
 input, textarea {
     font-family: Poppins, sans-serif;
-    color: var(--main-black)
+    color: var(--main-black);
 }
 ul {
     margin: 0;
@@ -75,6 +78,16 @@ main {
 }
 #theme:checked ~ .checkbox::after{
     transform: translateX(20px);
+}
+#create-msg-select{
+    width: 145px;
+    padding: 7px 10px;
+    margin: 0 0 15px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: 1px solid #999;
+    background: var(--main-white);
+    color: var(--main-black);
 }
 
 /*other styles*/

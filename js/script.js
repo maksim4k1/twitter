@@ -152,5 +152,3 @@ function selectTheme(theme){
         document.body.style.background = "#5cf";
     }
 }
-
-// Change message theme

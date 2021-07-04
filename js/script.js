@@ -9,6 +9,7 @@ if(localStorage.messages !== undefined){
 
 const authorInput = document.getElementById("create-msg-author");
 const messageInput = document.getElementById("create-msg-text");
+const themeSelection = document.getElementById("create-msg-select");
 const sendButton = document.getElementById("sendBtn");
 const posts = document.querySelector(".posts");
 
@@ -31,11 +32,12 @@ function sendMessage(){
             authorInput.value = "Unknown author";
         }
         let date = Date.now();
-        createMessage(authorInput.value, messageInput.value, date, true);
+        createMessage(authorInput.value, messageInput.value, date, true, themeSelection.value);
 
         messages.push({
             author: authorInput.value,
             message: messageInput.value,
+            theme: themeSelection.value,
             createdAt: date,
         });
         localStorage.setItem("messages", JSON.stringify(messages));
@@ -51,7 +53,7 @@ function sendMessage(){
 }
 
 // Create message
-function createMessage(author, message, date, isArray){
+function createMessage(author, message, date, isArray, theme){
     let formattedDate = formatDate(date);
 
     let messageInfo = createElement("div", "msg__info");
@@ -61,6 +63,9 @@ function createMessage(author, message, date, isArray){
     let messageContainer = createElement("li", "msg")
     messageInfo.append(messageAuthor, messageDate);
     messageContainer.append(messageInfo, messageText);
+    if(theme === "dark"){
+        messageContainer.classList.add("dark-message");
+    }
 
     posts.prepend(messageContainer);
 
@@ -80,9 +85,9 @@ function renderMessages(array){
     posts.innerHTML = "";
     for(let i = 0; i < array.length; i++){
         if(i === array.length - 1){
-            createMessage(array[i].author, array[i].message, array[i].createdAt, true);
+            createMessage(array[i].author, array[i].message, array[i].createdAt, true, array[i].theme);
         } else{
-            createMessage(array[i].author, array[i].message, array[i].createdAt);
+            createMessage(array[i].author, array[i].message, array[i].createdAt, false, array[i].theme);
         }
     }
 }
@@ -143,7 +148,9 @@ function selectTheme(theme){
         document.documentElement.setAttribute("style", "--main-white: #383838; --main-black: #fff;");
         document.body.style.background = "#357F9F";
     } else if(theme === "light"){
-        document.documentElement.setAttribute("style", "--main-white: #fff; --main-black: #000;");
+        document.documentElement.setAttribute("style", "--main-white: #fff; --main-black: #383838;");
         document.body.style.background = "#5cf";
     }
 }
+
+// Change message theme

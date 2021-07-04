@@ -77,6 +77,7 @@ function createMessage(author, message, date, isArray){
 
 // Render messages
 function renderMessages(array){
+    posts.innerHTML = "";
     for(let i = 0; i < array.length; i++){
         if(i === array.length - 1){
             createMessage(array[i].author, array[i].message, array[i].createdAt, true);
